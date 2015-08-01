@@ -9,8 +9,9 @@ router.get('/', function(req, res, next) {
 });
 
 // Enlazamos las rutas con el controlador que debe gestionarlas
-router.get('/quizes/question',quizController.question);
-router.get('/quizes/answer',quizController.answer);
+router.get('/quizes',quizController.index);
+router.get('/quizes/:quizId(\\d+)',quizController.show);
+router.get('/quizes/:quizId(\\d+)/answer',quizController.answer);
 
 // Enlace a la página que muestra los créditos
 router.get('/author',function(req,res){
