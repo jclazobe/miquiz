@@ -42,9 +42,11 @@ var Comment = sequelize.import(comment_path);
 
 // Defina la relación entre las tablas:
 // Cada comentario pertenece a una pregunta
-// y cada pregunta puede tener varios comentario
-Comment.belongsTo(Quiz);
-Quiz.hasMany(Comment);
+// y cada pregunta puede tener varios comentarios
+// La ligadura: onDelete:'cascade' es para que se borren automáticamente
+// los comentarios asociados a una pregunta cuando se borra esa pregunta.
+Comment.belongsTo(Quiz,{onDelete:'cascade'});
+Quiz.hasMany(Comment,{onDelete:'cascade'});
 
 exports.Quiz = Quiz; // Exportar definición de tabla Quiz
 exports.Comment = Comment; // Exporta definición de la tabla de comentarios

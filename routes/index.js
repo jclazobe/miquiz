@@ -40,4 +40,7 @@ router.get('/author',function(req,res){
 	res.render('author',{nombre:'Juan Carlos Lázaro',foto:'images/avatar_admin.png',errors:[]});
 });
 
+// Enlace a la página de las estadísticas
+router.get('/quizes/estadisticas',quizController.estadisticas);
+
 module.exports = router;
