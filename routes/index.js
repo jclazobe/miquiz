@@ -5,7 +5,7 @@ var quizController = require('../controllers/quiz_controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'miQuiz' });
+  res.render('index', { title: 'miQuiz',errors:[]});
 });
 
 // Autoload de comandos con :quizId
@@ -20,7 +20,7 @@ router.post('/quizes/create',quizController.create);
 
 // Enlace a la página que muestra los créditos
 router.get('/author',function(req,res){
-	res.render('author',{nombre:'Juan Carlos Lázaro',foto:'images/avatar_admin.png'});
+	res.render('author',{nombre:'Juan Carlos Lázaro',foto:'images/avatar_admin.png',errors:[]});
 });
 
 module.exports = router;
